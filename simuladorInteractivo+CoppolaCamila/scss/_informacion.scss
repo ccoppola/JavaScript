@@ -1,0 +1,84 @@
+/*Quienes somos*/
+.quienesSomos {
+	.titulo{
+		@include font;
+		@include tamañoLetra (2rem);
+		text-align: center;
+		text-decoration: underline;
+		margin-top: 20px;
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (1.5rem);
+			text-align: left;
+			margin: 20px;
+		}
+	}
+	.text-center img{
+		padding: 20px;
+		margin-top: 20px;
+		height: 500px;
+		width: 650px;
+		@media all and (max-width: $media-querie){
+			height: 300px;
+			width: 300px;
+		}
+	}
+}
+.texto{
+	color: #5d5d5d;
+	@include font;
+	@include tamañoLetra (1.3rem);
+	padding-top: 1vh;
+	text-align: center;
+	max-width: 1140px;
+	margin:50px;
+	text-decoration: none;
+	@media all and (max-width: $media-querie){
+		@include tamañoLetra (1rem);
+		text-align: left;
+		}
+}
+.frase{
+	font-family: $font-robotoCondensed;
+	font-weight: map-get($miMap, superBold);
+	font-style: italic;
+	text-align: center;
+	@include tamañoLetra (1.4rem);
+	color: #6f7ccb;
+	height: $height - 90vh;
+	@media all and (max-width: $media-querie){
+		@include tamañoLetra (1.2rem);
+		text-align: left;
+		margin: 30px;
+		}
+}
+.titulosSecundarios{
+	margin: 10px;
+	font-weight: map-get($miMap, Bold);
+	@include tamañoLetra (1.5rem);
+	text-align: center;
+	text-decoration: underline;
+	padding-top: 1vh;
+	@media all and (max-width: $media-querie){
+		@include tamañoLetra (1rem);
+		text-align: left;
+		}
+}
+.listaValores{
+	margin-top: 20px;
+	@include font;
+	color: #000000;
+	text-align: right;
+	.cajaValores{
+		button{
+			margin-top: 10px;
+		}
+	}
+	@media all and (max-width: $media-querie){
+		@include tamañoLetra (0.9rem);
+		text-align: left;
+		margin-left: 10px;
+	}
+	
+}
+
+		

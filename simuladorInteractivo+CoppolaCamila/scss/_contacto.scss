@@ -1,0 +1,34 @@
+/*Contacto*/
+.mapaContacto iframe{
+	height: 400px;
+	width: 800px;
+	margin-top: 20px;
+	@media all and (max-width: $media-querie){
+		height: 200px;
+		width: 400px;
+	}
+}
+.formulario {
+	h1{
+		margin: 50px;
+		@include font;
+		@include tamañoLetra (2rem);
+		text-decoration: underline;
+		text-align: center;
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (1.5rem);
+		}
+	}
+	form{
+		font-family: $font-Jost;
+		font-weight: 40;
+		@include tamañoLetra (1rem);
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (0.9rem);
+		}
+	}
+}
+.col-5 textarea{
+	height: 36px;
+	margin-top: 5vh;
+}

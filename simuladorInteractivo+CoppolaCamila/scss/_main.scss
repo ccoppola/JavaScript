@@ -1,0 +1,106 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: $font-Jost;
+	font-weight: map-get($miMap, semiBold);
+}
+
+/*Nav Bar*/
+	
+.navbar{
+	&.bgColor{
+		background-color: $background-nav;
+		
+	}		
+}
+#navbarNav .navbar-nav{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		background-color: $background-nav; 
+		&:hover{
+			background-color: #B2AAFD;		
+		}
+}  
+.nav-item{
+	margin:  20px;
+	@include tamañoLetra (1.5rem);
+	@media all and (max-width: $media-querie){
+		@include tamañoLetra (1rem);
+	}
+
+}
+/*Carousel*/
+
+#carouselExampleControls {
+	margin: 38px;
+	.carousel-item{
+		margin-left: 40%;
+		@media all and (max-width: $media-querie){
+			margin-left: 10%;
+		}
+	}
+}
+
+/*Productos destacados*/
+.titulo{
+	@include display;
+	text-align: center;
+	@include tamañoLetra (2rem);
+	@media all and (max-width: $media-querie){
+		@include tamañoLetra (1.5rem);
+		text-align: left;
+		margin: 20px;
+	}
+}
+.card-img-top{
+	height: 150px;
+	margin-top: 15px;
+}
+.card{
+	margin: 10px;
+	font-family:  $font-Jost;
+	font-weight: map-get($miMap, light);
+	@include tamañoLetra (1rem);
+	transition: all 200ms ease-in-out;
+		&:hover{
+			transform: scale(1.1);
+		}
+	&.card-body{
+		background-color: #d7daff;
+		margin-bottom: 5px;
+		text-align: center;
+	}
+}
+
+
+/*Footer*/
+.footer{
+	background-color:$backgroundFooter;
+	background-size: cover;	
+	height: auto;
+	padding: 10px;
+	margin-top: 100px;
+}
+.boxFooter {
+	p{
+		font-family: $font-robotoCondensed;
+		font-weight: map-get($miMap, bold);
+		text-decoration: underline;
+		text-align: left;
+		@include tamañoLetra (0.8rem);
+	}
+	li{
+		margin: 10px;
+		list-style: square;
+		font-family: $font-robotoCondensed;
+		font-weight: map-get($miMap, light);
+		@include tamañoLetra (0.7rem);
+	}	
+}
+iframe{
+	border: 0;
+	margin-top: 5px;	
+}

@@ -1,0 +1,22 @@
+/*Novedades*/
+.novedades {
+	.titulo{
+		font-family: $font-Jost;
+		font-weight: map-get($miMap, semiBold);
+		font-size: 2rem;
+		text-align: center;
+		text-decoration: underline;	
+		margin-top: 10px;
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (1.5rem);
+			text-align: left;
+		}
+	}
+}
+.img-novedades{
+	height: 200px;
+	margin-top: 15px;
+}
+.card{
+		margin: 10px;
+}

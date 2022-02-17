@@ -1,0 +1,95 @@
+/*Lista de precios*/
+
+.tituloIngresar {
+
+	h1{
+		@include font;
+		font-size: 2rem;
+		text-decoration: underline;
+		margin: 20px 20px 0 40px;
+		text-align: left;
+		@media all and (max-width: $media-querie){
+			font-size: 1.5rem;
+		}
+	}
+}
+
+.titulo {
+	h1{
+		@include font;
+		@include tamañoLetra (2rem);
+		text-decoration: underline;
+		margin-top: 50px;
+		text-align: center;
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (1.5rem);
+			text-align: left;
+			margin-left: 10px;
+		}
+	}
+}
+.segundoFormulario{
+	text-align: left;
+	@include tamañoLetra (1rem);
+	@media all and (max-width: $media-querie){
+			margin-left: 10px;
+			@include tamañoLetra (0.9rem);
+
+		}
+}
+#nuevaCuenta{
+	@include tamañoLetra (1rem);
+	text-align: center;
+	margin-top: 10px;
+    margin-bottom: 20px;
+	@media all and (max-width: $media-querie){
+			@include tamañoLetra (0.9rem);
+			text-align: left;
+			margin:10px;
+		}
+}
+
+.align-right {
+	text-align: right;
+}
+.form-label{
+	@include tamañoLetra (1.1rem);
+	@media all and (max-width: $media-querie){
+			@include tamañoLetra (0.9rem);
+		}
+}
+.form-check{
+	margin-top: 20px;
+}
+.row {
+	.boton{
+		margin-top: 20px;
+		border-radius: 10px;
+		@media all and (max-width: $media-querie){
+			margin-left: 10px;
+		}
+		.btn-primary{
+			background-color: $background-nav;
+			color: #000000;
+		}
+	}
+	.form-check-label{
+		@include font;
+		@include tamañoLetra (0.9rem);
+	}
+	.email{
+		margin: 40px;
+	}
+	.contraseña{
+		margin: 40px;
+	}
+	.botonIngreso{
+		margin-left: 40px;
+		.btn-primary{
+			background-color: $background-nav;
+			color: #000000;
+		}
+	}
+}
+
+ 

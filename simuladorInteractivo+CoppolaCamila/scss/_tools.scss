@@ -1,0 +1,11 @@
+@mixin tamañoLetra ($fontSize){
+	font-size: $fontSize;
+}
+@mixin display{
+	display: flex;
+	flex-direction: column;
+}
+@mixin font{
+	font-family: $font-Jost;
+	font-weight: map-get($miMap, semiBold);
+}

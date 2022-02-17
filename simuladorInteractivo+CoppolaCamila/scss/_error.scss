@@ -1,0 +1,25 @@
+/*Pagina de error*/
+
+.paginaError{
+	text-align: center;
+	.error{
+		font-size: 3rem;
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (2rem);
+		}
+	}
+	.fraseError{
+		font-size: 2rem;
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (1.5rem);
+		}
+	}
+	.textoError{
+		font-size: 1.5rem;
+		color: #5e5e5e;
+		margin: 20px;
+		@media all and (max-width: $media-querie){
+			@include tamañoLetra (1rem);
+		}
+	}
+}
