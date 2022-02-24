@@ -1,33 +1,4 @@
-/*let nombre;
-let apellido;
-let dni;
-let datos;
-let nombreEmpresa;
-let numeroCuit;
-let usuario;
-let contrasenia;
-
-
-datos = prompt("Primero ingrese los datos. (Empresa o Persona Fisica)");
-if(datos == "Empresa"){
-    nombreEmpresa = prompt("Ingrese el nombre de la empresa");
-    numeroCuit = parseInt(prompt("Ingrese el numero de cuit"));
-    alert("Bienvenido" + " " + nombreEmpresa + " " + "Ahora falta crear su usario y contraseña.");
-}
-    
-else if(datos == "Persona Fisica"){
-    nombre = prompt("Ingrese su nombre");
-    apellido = prompt("Ingrese su apellido");
-    dni = parseInt(prompt("Ingrese su dni"));
-    alert("Bienvenido" + nombre + apellido, + "Ahora falta crear su usario y contraseña");    
-}
-
-    usuario = prompt("Ingrese su nombre de usuario");
-    contrasenia = prompt("Ingrese la contraseña");
-
-alert("Su solicitud fue realizada con exito." + " " + "Su usuario es: " + " " + usuario + " " + "y su contraseña es: " + " " + contrasenia);*/
- 
-
+/*Declaro las variables*/
 let productoParagolpes;
 let productoOpticas;
 let stockParagolpesFord = 2000;
@@ -51,35 +22,59 @@ let cantFordOpticas = 0;
 let cantChevroletParagolpe = 0;
 let cantChevroletOpticas = 0;
 
-
+/*Funcion para solicitar la Marca del vehiculo*/
 function SolicitarMarca(){
-    let marcaIngresada = prompt("Ingrese la marca de su vehiculo. ford/chevrolet");
-    while(marcaIngresada != "ford" && marcaIngresada != "chevrolet"){
-        marcaIngresada = prompt("Dato incorrecto. Ingrese la marca nuevamente");
+    const listaMarcas = ["ford","chevrolet"];
+    let msjPrompt = "Ingrese la marca de su vehiculo. (";
+    for (const marcas of listaMarcas) {
+        msjPrompt += marcas + " ";     
+    }
+    msjPrompt += ")";
+
+    let marcaIngresada = prompt (msjPrompt);
+    while(listaMarcas.find(x => marcaIngresada == x) == undefined){
+        marcaIngresada = prompt ("Dato incorrecto." + msjPrompt);
     }
     return marcaIngresada;
 }
 
+/*Funcion para solicitar el producto que dea comprar*/
 function SolicitarProducto(){
-    let productoSeleccionado = prompt("Ingrese el producto que desea comprar. paragolpes/opticas");
-    while(productoSeleccionado != "paragolpes" && productoSeleccionado != "opticas"){
-        productoSeleccionado = prompt("Dato incorrecto. Ingrese nuevamente el producto que desea comprar.");
-    }
-    return productoSeleccionado;
-}
+    //aca declaro el array y lo inicializo con los elementos.
+    const listaProductos = ["paragolpes","opticas"];
 
+    //declaro la variable, donde alojo el mensaje, que le muestro al usuario.
+    let msjPrompt = "Ingrese el producto que desea comprar. (";
+    //Recorro el array (la lista de productos), y por cada elemento del array, voy agregando ese elemento a mi mensaje.
+    for (const producto of listaProductos) {
+        msjPrompt += producto + " ";
+    }
+    msjPrompt += ")";
+
+    //Guardo en una variable, el producto que ingreso el usuario.
+    let productoIngresado = prompt(msjPrompt);
+    //Tomo el producto que ingreso el usuario y luego realizo una validacion, para ver si esta dentro de mi array (lista productos)
+    while(listaProductos.find( x => productoIngresado == x) == undefined){
+        //Si el producto que ingreso no esta dentro de mi array (lista productos), le doy un mensaje de error al usuario, y le vuelvo a solicitar un producto.
+        productoIngresado = prompt("Dato incorrecto." + msjPrompt);
+    }
+    //Devuelvo el producto que ingreso el usuario. 
+    return productoIngresado;
+}
+/*Funcion para ingresar la cantidad del producto que desea*/
 function IngresarCantidadProducto(){
    let cantidadProductoIngresado = parseInt(prompt("Ingrese la cantidad que desea comprar."));
    return cantidadProductoIngresado;
 }
 
+/*Funcion poder validar el stock del producto*/
 function ValidarStockProductos(cantidadProductosIngresados, stockProducto){
     while(cantidadProductosIngresados > stockProducto){
         cantidadProductosIngresados = parseInt(prompt("No tenemos stock suficiente de ese producto, puede comprar hasta " + stockProducto + " unidades. Ingrese una cantidad valida"));
     }
     return cantidadProductosIngresados;
 }
-
+/*Funcion donde se calcula el precio final*/
 function CalcularPrecioFinal(cantChevroletOpticas, precioOpticaChevrolet, cantChevroletParagolpe, precioParagolpeChevrolet, cantFordParagolpe, precioParagolpeFord, cantFordOpticas, precioOpticaFord ){
     let precioFinalCalculado = cantChevroletOpticas * precioOpticaChevrolet + cantChevroletParagolpe * precioParagolpeChevrolet + cantFordParagolpe * precioParagolpeFord + cantFordOpticas * precioOpticaFord;
     return precioFinalCalculado;
