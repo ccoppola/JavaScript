@@ -21,6 +21,17 @@ let cantFordParagolpe = 0;
 let cantFordOpticas = 0;
 let cantChevroletParagolpe = 0;
 let cantChevroletOpticas = 0;
+//se genero un nuevo array vacio
+const arrProductos = [];
+
+class Producto{
+    constructor(marcaVehiculo, tipoProducto, cantProducto){
+        this.marcaVehiculo = marcaVehiculo;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantProducto;
+    }
+}
+
 
 /*Funcion para solicitar la Marca del vehiculo*/
 function SolicitarMarca(){
@@ -85,7 +96,7 @@ do{
     marca = SolicitarMarca();
     producto = SolicitarProducto();
     cantidadProducto = IngresarCantidadProducto();
-      
+ 
     if(marca == "ford" && producto =="paragolpes")
     {   
         cantidadProducto = ValidarStockProductos(cantidadProducto, stockParagolpesFord);
@@ -106,16 +117,36 @@ do{
         cantidadProducto = ValidarStockProductos(cantidadProducto, stockOpticasChevrolet);
         cantChevroletOpticas += cantidadProducto;
     }
+    
+    const objProducto = new Producto(marca, producto, cantidadProducto);
+    arrProductos.push(objProducto);
 
     precioFinal = CalcularPrecioFinal(cantChevroletOpticas, precioOpticaChevrolet, cantChevroletParagolpe, precioParagolpeChevrolet, cantFordParagolpe, precioParagolpeFord, cantFordOpticas, precioOpticaFord );
     respuesta = prompt("¿Desea seguir comprando repuestos? si/no");
 
 }while (respuesta == "si")
 
-alert("El detalle de su compra es el siguiente: \n" +
-cantChevroletOpticas  + " opticas chevrolet y su total es $" + cantChevroletOpticas * precioOpticaChevrolet + "\n" +
-cantFordOpticas + " opticas ford y su total es $" + cantFordOpticas * precioOpticaFord + "\n" +
-cantChevroletParagolpe + " paragolpes chevrolet y su total es $" + cantChevroletParagolpe * precioParagolpeChevrolet + "\n" +
-cantFordParagolpe + " paragolpes ford y su total es $" + cantFordParagolpe * precioParagolpeFord + 
-"\n\n El total de la compra es de: $" + precioFinal);
+let mensaje = "El detalle de su compra es:\n";
+for (const obj of arrProductos){
+    mensaje += "Marca: " + obj.marcaVehiculo + " - TipoProducto: " + obj.tipoProducto + " - Cantidad: " + obj.cantidad + "\n";
+}
+
+mensaje += "Y el precio final de su compra es de: $" + precioFinal;
+
+alert(mensaje);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
