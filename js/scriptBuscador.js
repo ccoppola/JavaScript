@@ -1,0 +1,81 @@
+const listaProductos = [
+    {
+        id: 1,
+        nombre: 'Optica Chevrolet Cruze 2016 en adelante -Original-',
+        precio: 15500,
+        imagen: 'assets/opticaCruze.jpg'
+    },
+    {
+        id: 2,
+        nombre: 'Faro trasero color blanco Peugeot 208 -Original-',
+        precio: 10200,
+        imagen: 'assets/faro208.jpeg'
+    },
+    {
+        id: 3,
+        nombre: 'Optica delantera Honda Fit 2012/2016 -Original-',
+        precio: 10900,
+        imagen: 'assets/opticaHonda.jpeg'
+    },
+    {
+        id: 4,
+        nombre: 'Optica izquierda Focus 2015/2020 -Original-',
+        precio: 20100,
+        imagen: 'assets/opticaFocus.jpeg'
+    },
+    {
+        id: 5,
+        nombre: 'Optica Alma delantera Ford Ka 2008/2013 -Original-',
+        precio: 14500,
+        imagen: 'assets/almaKa.jpeg'
+    },
+    {
+        id: 6,
+        nombre: 'Optica derecha Palio F.II F/Cromado A/cromado -Original-',
+        precio: 11690,
+        imagen: 'assets/opticaPalio.jpeg'
+    },
+    {
+        id: 7,
+        nombre: 'Optica Panel trasero interior Renault Logan -Original-',
+        precio: 9900,
+        imagen: 'assets/panelLogan.jpeg'
+    },
+    {
+        id: 8,
+        nombre: 'Panel cola trasera Honda Civic Linea 2006/2011 -Original-',
+        precio: 25600,
+        imagen: 'assets/colaHonda.jpeg'
+    }
+   
+
+];
+
+const formulario = document.querySelector('#formulario');
+const botonBuscar = document.querySelector('#botonBuscar');
+const productoBuscar = document.querySelector('#productoBuscar');
+
+const filtrar = () => {
+    productoBuscar.innerHTML = '';
+    const texto = formulario.value.toLowerCase();
+
+    for (let producto of listaProductos) {
+        let nombre = producto.nombre.toLocaleLowerCase();
+        if(nombre.indexOf(texto)!== -1){
+            productoBuscar.innerHTML += `
+            <div>${producto.nombre}</div>
+            `           
+        }
+    }
+
+    if(productoBuscar.innerHTML === ''){
+        productoBuscar.innerHTML += `
+            <div>Producto no encontrado.</div>
+            ` 
+    }
+}
+
+botonBuscar.addEventListener('click', filtrar);
+formulario.addEventListener('keyup',filtrar);
+
+filtrar();
